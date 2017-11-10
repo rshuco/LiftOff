@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:checked="true"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_program"
+        android:checked="false"
+        android:icon="@drawable/ic_fitness_center_black_24dp"
+        android:title="@string/title_program" />
+
+    <item
+        android:id="@+id/navigation_calendar"
+        android:checked="false"
+        android:icon="@drawable/ic_insert_invitation_black_24dp"
+        android:title="@string/title_calendar" />
+    <item
+        android:id="@+id/navigation_graphs"
+        android:checked="false"
+        android:icon="@drawable/ic_insert_chart_black_24dp"
+        android:title="@string/title_graphs" />
+
+</menu>
