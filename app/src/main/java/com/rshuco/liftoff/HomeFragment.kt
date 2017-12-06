@@ -22,10 +22,11 @@ class HomeFragment : Fragment() {
         actionBar!!.setTitle(R.string.app_name)
 
 
+        /*
         val button : Button = getView()?.findViewById<Button>(R.id.btn_add_new_exercise) as Button
 
 
-        /*
+
         button.onClick {
             startActivity<ExerciseCategoriesActivity>()
         }
