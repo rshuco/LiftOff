@@ -8,5 +8,11 @@ class RemindersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reminders)
+
+        // Get a support ActionBar corresponding to this toolbar
+        val ab = supportActionBar
+
+        // Enable the Up button
+        ab!!.setDisplayHomeAsUpEnabled(true)
     }
 }

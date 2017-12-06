@@ -2,14 +2,13 @@ package com.rshuco.liftoff
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener
-import android.support.v4.app.Fragment
+import android.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.FrameLayout
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
+import android.app.FragmentManager
+import android.app.FragmentTransaction
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_calendar.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,16 +16,29 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
 
+                var homeFragment = HomeFragment()
+
+                var transactionManager = fragmentManager.beginTransaction()
+
+                var container:ViewGroup = findViewById<ViewGroup>(R.id.fragment_container) as ViewGroup
+
+                container.removeAllViews()
+
+                transactionManager.replace(R.id.fragment_container, homeFragment)
+                transactionManager.addToBackStack(null)
+                transactionManager.commit()
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_program -> {
 
                 var fragment = GoalsFragment()
+
                 var transactionManager = fragmentManager.beginTransaction()
 
-                var container:ViewGroup = findViewById<ViewGroup>(R.id.fragment_container) as ViewGroup;
+                var container:ViewGroup = findViewById<ViewGroup>(R.id.fragment_container) as ViewGroup
 
-                container.removeAllViews();
+                container.removeAllViews()
 
                 transactionManager.replace(R.id.fragment_container, fragment)
                 transactionManager.addToBackStack(null)
@@ -36,16 +48,31 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_calendar -> {
 
+                var calendarFragment = CalendarFragment()
+                var transactionManager = fragmentManager.beginTransaction()
 
+                var container:ViewGroup = findViewById<ViewGroup>(R.id.fragment_container) as ViewGroup
 
-//                supportFragmentManager.inTransaction {
-//                    replaceFragment(R.id.fragment_container, 0);
-//
-//                }
+                container.removeAllViews()
+
+                transactionManager.replace(R.id.fragment_container, calendarFragment)
+                transactionManager.addToBackStack(null)
+                transactionManager.commit()
 
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_graphs -> {
+
+                var graphsFragment = GraphsFragment()
+                var transactionManager = fragmentManager.beginTransaction()
+
+                var container:ViewGroup = findViewById<ViewGroup>(R.id.fragment_container) as ViewGroup
+
+                container.removeAllViews()
+
+                transactionManager.replace(R.id.fragment_container, graphsFragment)
+                transactionManager.addToBackStack(null)
+                transactionManager.commit()
 
                 return@OnNavigationItemSelectedListener true
             }
@@ -57,24 +84,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         navigationBar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, CalendarFragment()).commit();
-    }
-
-
-
-    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
-        val fragmentTransaction = beginTransaction()
-        fragmentTransaction.func()
-        fragmentTransaction.commit()
-    }
-
-    fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int){
-        supportFragmentManager.inTransaction { add(frameId, fragment) }
-    }
-
-
-    fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
-        supportFragmentManager.inTransaction{replace(frameId, fragment)}
+        fragmentManager.beginTransaction().add(R.id.fragment_container, HomeFragment()).commit()
     }
 
 }

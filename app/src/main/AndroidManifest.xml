@@ -9,23 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".RemindersActivity"
-            android:label="@string/heading_reminders">
+            android:label="@string/heading_reminders"
+            android:parentActivityName="com.rshuco.liftoff.MainActivity">>
         </activity>
+
         <activity
             android:name=".GoalsActivity"
             android:label="@string/heading_goals">
         </activity>
+
+        <activity
+            android:name=".ExerciseCategoriesActivity"
+            android:label="@string/heading_exercise_categories"
+            android:parentActivityName="com.rshuco.liftoff.MainActivity">
+        </activity>
+
     </application>
 
 </manifest>

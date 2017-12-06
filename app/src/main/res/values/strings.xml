@@ -2,6 +2,7 @@
     <string name="app_name">Lift Off</string>
     <string name="heading_reminders">Reminders</string>
     <string name="heading_goals">Goals</string>
+    <string name="heading_exercise_categories">Exercise Categories</string>
     <string name="no_exercises">No Exercises Added</string>
     <string name="title_home">Home</string>
     <string name="title_program">Program</string>
